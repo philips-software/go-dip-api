@@ -13,11 +13,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dip-software/go-dip-api/internal"
+	"github.com/philips-software/go-dip-api/internal"
 
-	"github.com/dip-software/go-dip-api/iam"
+	"github.com/philips-software/go-dip-api/iam"
 
-	autoconf "github.com/dip-software/go-dip-api/config"
+	autoconf "github.com/philips-software/go-dip-api/config"
 
 	signer "github.com/dip-software/go-dip-signer"
 )

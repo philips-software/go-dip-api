@@ -119,4 +119,4 @@ from the main (upstream) repository:
 ## <a name="info"></a> Info
 
 [contribute]: CONTRIBUTING.md
-[github]: https://github.com/dip-software/go-dip-api/issues 
+[github]: https://github.com/philips-software/go-dip-api/issues 

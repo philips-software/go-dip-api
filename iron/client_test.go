@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/dip-software/go-dip-api/iron"
+	"github.com/philips-software/go-dip-api/iron"
 
 	"github.com/stretchr/testify/assert"
 )

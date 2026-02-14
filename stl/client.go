@@ -6,9 +6,9 @@ import (
 	"io"
 	"net/http"
 
-	autoconf "github.com/dip-software/go-dip-api/config"
-	"github.com/dip-software/go-dip-api/console"
-	"github.com/dip-software/go-dip-api/internal"
+	autoconf "github.com/philips-software/go-dip-api/config"
+	"github.com/philips-software/go-dip-api/console"
+	"github.com/philips-software/go-dip-api/internal"
 	"github.com/hasura/go-graphql-client"
 	"golang.org/x/oauth2"
 )

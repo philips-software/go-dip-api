@@ -7,8 +7,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dip-software/go-dip-api/iam"
-	"github.com/dip-software/go-dip-api/notification"
+	"github.com/philips-software/go-dip-api/iam"
+	"github.com/philips-software/go-dip-api/notification"
 	"github.com/stretchr/testify/assert"
 )
 

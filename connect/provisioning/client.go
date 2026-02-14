@@ -12,9 +12,9 @@ import (
 	"path"
 	"strings"
 
-	autoconf "github.com/dip-software/go-dip-api/config"
-	"github.com/dip-software/go-dip-api/iam"
-	"github.com/dip-software/go-dip-api/internal"
+	autoconf "github.com/philips-software/go-dip-api/config"
+	"github.com/philips-software/go-dip-api/iam"
+	"github.com/philips-software/go-dip-api/internal"
 	"github.com/go-playground/validator/v10"
 	"github.com/google/go-querystring/query"
 )

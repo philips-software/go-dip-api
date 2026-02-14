@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/dip-software/go-dip-api/internal"
+	"github.com/philips-software/go-dip-api/internal"
 )
 
 type StorageClassService struct {

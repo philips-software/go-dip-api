@@ -1,4 +1,4 @@
-module github.com/dip-software/go-dip-api
+module github.com/philips-software/go-dip-api
 
 go 1.24.0
 

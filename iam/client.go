@@ -13,9 +13,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dip-software/go-dip-api/internal"
+	"github.com/philips-software/go-dip-api/internal"
 
-	autoconf "github.com/dip-software/go-dip-api/config"
+	autoconf "github.com/philips-software/go-dip-api/config"
 	hsdpsigner "github.com/dip-software/go-dip-signer"
 	"github.com/go-playground/validator/v10"
 	"github.com/google/go-querystring/query"

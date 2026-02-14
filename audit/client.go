@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/dip-software/go-dip-api/internal"
+	"github.com/philips-software/go-dip-api/internal"
 	"github.com/google/fhir/go/fhirversion"
 
 	signer "github.com/dip-software/go-dip-signer"

@@ -1,14 +1,14 @@
 package dbs_test
 
 import (
-	"github.com/dip-software/go-dip-api/connect/dbs"
+	"github.com/philips-software/go-dip-api/connect/dbs"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	_ "os"
 	"testing"
 
-	"github.com/dip-software/go-dip-api/iam"
+	"github.com/philips-software/go-dip-api/iam"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,14 +1,14 @@
 package blr_test
 
 import (
-	"github.com/dip-software/go-dip-api/connect/blr"
+	"github.com/philips-software/go-dip-api/connect/blr"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	_ "os"
 	"testing"
 
-	"github.com/dip-software/go-dip-api/iam"
+	"github.com/philips-software/go-dip-api/iam"
 	"github.com/stretchr/testify/assert"
 )
 

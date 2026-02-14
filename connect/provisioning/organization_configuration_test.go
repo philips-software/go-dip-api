@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/dip-software/go-dip-api/connect/provisioning"
+	"github.com/philips-software/go-dip-api/connect/provisioning"
 
 	"github.com/stretchr/testify/assert"
 )

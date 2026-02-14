@@ -13,11 +13,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dip-software/go-dip-api/internal"
+	"github.com/philips-software/go-dip-api/internal"
 	"github.com/hasura/go-graphql-client"
 	"golang.org/x/oauth2"
 
-	autoconf "github.com/dip-software/go-dip-api/config"
+	autoconf "github.com/philips-software/go-dip-api/config"
 	"github.com/go-playground/validator/v10"
 	"github.com/google/go-querystring/query"
 )

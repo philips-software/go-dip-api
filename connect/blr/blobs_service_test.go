@@ -2,7 +2,7 @@ package blr_test
 
 import (
 	"fmt"
-	"github.com/dip-software/go-dip-api/connect/blr"
+	"github.com/philips-software/go-dip-api/connect/blr"
 	"io"
 	"net/http"
 	"testing"

@@ -8,8 +8,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dip-software/go-dip-api/console"
-	"github.com/dip-software/go-dip-api/console/docker"
+	"github.com/philips-software/go-dip-api/console"
+	"github.com/philips-software/go-dip-api/console/docker"
 	"github.com/stretchr/testify/assert"
 )
 

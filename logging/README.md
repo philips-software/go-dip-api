@@ -7,7 +7,7 @@ import (
         "net/http"
         "fmt"
         "time"
-        "github.com/dip-software/go-dip-api/logging"
+        "github.com/philips-software/go-dip-api/logging"
 )
 
 func main() {
@@ -46,7 +46,7 @@ func main() {
 
 ## Issues
 
-- If you have an issue: report it on the [issue tracker](https://github.com/dip-software/go-dip-api/issues)
+- If you have an issue: report it on the [issue tracker](https://github.com/philips-software/go-dip-api/issues)
 
 ## License
 

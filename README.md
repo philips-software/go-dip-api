@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/dip-software/go-dip-api)](https://pkg.go.dev/github.com/dip-software/go-dip-api)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/philips-software/go-dip-api)](https://pkg.go.dev/github.com/philips-software/go-dip-api)
 
 # go-dip-api
 
@@ -6,7 +6,7 @@ A DIP API client library enabling Go programs to interact with various DIP APIs 
 
 > [!Important]
 > This library is not endorsed, supported or approved by any corporate entity. It is a DIP Software Open Source community managed project. Please do not raise
-> SNOW tickets, instead open a issue on the [Github project](https://github.com/dip-software/go-dip-api/issues).
+> SNOW tickets, instead open a issue on the [Github project](https://github.com/philips-software/go-dip-api/issues).
 
 ## Supported APIs
 
@@ -103,7 +103,7 @@ package main
 import (
         "fmt"
 
-        "github.com/dip-software/go-dip-api/iam"
+        "github.com/philips-software/go-dip-api/iam"
 )
 
 func main() {
@@ -131,7 +131,7 @@ func main() {
 
 ## Issues
 
-- If you discover an issue: report it on the [issue tracker](https://github.com/dip-software/go-dip-api/issues)
+- If you discover an issue: report it on the [issue tracker](https://github.com/philips-software/go-dip-api/issues)
 
 ## License
 
