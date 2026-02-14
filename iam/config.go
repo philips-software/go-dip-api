@@ -3,7 +3,7 @@ package iam
 import (
 	"io"
 
-	hsdpsigner "github.com/dip-software/go-dip-signer"
+	hsdpsigner "github.com/philips-software/go-nih-signer"
 )
 
 // Config contains the configuration of a client

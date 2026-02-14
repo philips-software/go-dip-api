@@ -4,13 +4,13 @@ go 1.24.0
 
 require (
 	github.com/cenkalti/backoff/v4 v4.3.0
-	github.com/dip-software/go-dip-signer v1.6.0
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/fhir/go v0.7.4
 	github.com/google/go-querystring v1.2.0
 	github.com/google/uuid v1.6.0
 	github.com/hasura/go-graphql-client v0.15.1
+	github.com/philips-software/go-nih-signer v1.5.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/oauth2 v0.35.0
 )

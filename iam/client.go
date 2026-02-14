@@ -16,7 +16,7 @@ import (
 	"github.com/philips-software/go-dip-api/internal"
 
 	autoconf "github.com/philips-software/go-dip-api/config"
-	hsdpsigner "github.com/dip-software/go-dip-signer"
+	hsdpsigner "github.com/philips-software/go-nih-signer"
 	"github.com/go-playground/validator/v10"
 	"github.com/google/go-querystring/query"
 )
