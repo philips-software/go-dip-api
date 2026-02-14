@@ -30,6 +30,34 @@ func TestNew(t *testing.T) {
 	assert.Equal(t, "https://iam-client-test.us-east.philips-healthsuite.com", iamService.URL)
 }
 
+func TestPreview(t *testing.T) {
+	c, err := config.New()
+	if !assert.Nil(t, err) {
+		return
+	}
+	if !assert.NotNil(t, c) {
+		return
+	}
+
+	iamService := c.
+		Region("us-east").
+		Env("preview").
+		Service("iam")
+	if !assert.NotNil(t, iamService) {
+		return
+	}
+	assert.Equal(t, "https://iam.us-east-1.stg-foundation-security.hsp.philips.com", iamService.URL)
+
+	idmService := c.
+		Region("us-east").
+		Env("preview").
+		Service("idm")
+	if !assert.NotNil(t, idmService) {
+		return
+	}
+	assert.Equal(t, "https://idm.us-east-1.stg-foundation-security.hsp.philips.com", idmService.URL)
+}
+
 func TestCartel(t *testing.T) {
 	c, err := config.New()
 	if !assert.Nil(t, err) {

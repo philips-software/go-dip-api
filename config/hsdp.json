@@ -12,8 +12,8 @@
           "url": "https://console.ap2.hsdp.io"
         },
         "docker-registry": {
-          "host": "docker.ap2.hsdp.io",
-          "url": "https://console.ap2.hsdp.io/api/docker/graphql"
+          "url": "https://console.ap2.hsdp.io/api/docker/graphql",
+          "host": "docker.ap2.hsdp.io"
         },
         "gateway": {
           "domain": "apac2.phsdp.com",
@@ -49,27 +49,20 @@
           }
         }
       },
-      "prod": {
-        "service": {
-          "s3creds": {
-            "url": "https://s3creds-service.ap3.hsdp.io"
-          }
-        }
-      },
       "service": {
         "cartel": {
           "host": "cartel-apac3.cloud.phsdp.com"
         },
         "cf": {
-          "domain": "ap3.hsdp.io",
-          "url": "https://api.sys.ap3.hsdp.io"
+          "url": "https://api.sys.ap3.hsdp.io",
+          "domain": "ap3.hsdp.io"
         },
         "console": {
           "url": "https://console.ap3.hsdp.io"
         },
         "docker-registry": {
-          "host": "docker.ap3.hsdp.io",
-          "url": "https://console.ap3.hsdp.io/api/docker/graphql"
+          "url": "https://console.ap3.hsdp.io/api/docker/graphql",
+          "host": "docker.ap3.hsdp.io"
         },
         "gateway": {
           "domain": "apac3.phsdp.com",
@@ -113,15 +106,15 @@
           "host": "cartel-ca1.cloud.phsdp.com"
         },
         "cf": {
-          "domain": "ca1.hsdp.io",
-          "url": "https://api.sys.ca1.hsdp.io"
+          "url": "https://api.sys.ca1.hsdp.io",
+          "domain": "ca1.hsdp.io"
         },
         "console": {
           "url": "https://console.ca1.hsdp.io"
         },
         "docker-registry": {
-          "host": "docker.ca1.hsdp.io",
-          "url": "https://console.ca1.hsdp.io/api/docker/graphql"
+          "url": "https://console.ca1.hsdp.io/api/docker/graphql",
+          "host": "docker.ca1.hsdp.io"
         },
         "gateway": {
           "domain": "ca1.phsdp.com",
@@ -154,19 +147,6 @@
           }
         }
       },
-      "prod": {
-        "service": {
-          "blr": {
-            "url": "https://blobrepository.cn1.iot.philips-healthsuite.com.cn/connect/blobrepository"
-          },
-          "connect-mdm": {
-            "url": "https://connect-mdm.cn1.iot.philips-healthsuite.com.cn/connect/mdm"
-          },
-          "iot": {
-            "url": "wss://aqrsmt9m297sm.ats.iot.cn-north-1.amazonaws.com.cn/mqtt?topic-prefix=prod"
-          }
-        }
-      },
       "service": {
         "vault-proxy": {
           "url": "https://vproxy.cn1.philips-healthsuite.com.cn"
@@ -183,8 +163,8 @@
           "host": "gw.na1.hsdp.io"
         },
         "stl": {
-          "domain": "na1.vpn.hsdp.io",
-          "url": "https://console.na3.hsdp.io/api/stl/user/v1/graphql"
+          "url": "https://console.na3.hsdp.io/api/stl/user/v1/graphql",
+          "domain": "na1.vpn.hsdp.io"
         },
         "uaa": {
           "url": "https://uaa.cloud.phsdp.com"
@@ -253,6 +233,9 @@
             "connect-mdm": {
               "url": "https://connect-mdm.eu01.iot.hsdp.io/connect/mdm"
             },
+            "discovery": {
+              "url": "https://discovery.eu01.iot.hsdp.io/core/discovery"
+            },
             "iam": {
               "url": "https://iam-service.eu-west.philips-healthsuite.com"
             },
@@ -280,6 +263,9 @@
             "pki": {
               "url": "https://pki-proxy-production.eu-west.philips-healthsuite.com"
             },
+            "provisioning": {
+              "url": "https://provisioning.eu01.iot.hsdp.io/connect/provisioning"
+            },
             "s3creds": {
               "url": "https://s3creds-service.eu-west.philips-healthsuite.com"
             },
@@ -297,23 +283,23 @@
           "host": "cartel-eu1.cloud.phsdp.com"
         },
         "cf": {
-          "domain": "eu-west.philips-healthsuite.com",
-          "url": "https://api.eu1.phsdp.com"
+          "url": "https://api.eu1.phsdp.com",
+          "domain": "eu-west.philips-healthsuite.com"
         },
         "console": {
           "url": "https://console.eu1.hsdp.io"
         },
         "docker-registry": {
-          "host": "docker.eu1.hsdp.io",
-          "url": "https://console.eu1.hsdp.io/api/docker/graphql"
+          "url": "https://console.eu1.hsdp.io/api/docker/graphql",
+          "host": "docker.eu1.hsdp.io"
         },
         "gateway": {
           "domain": "emea1.phsdp.com",
           "host": "gw.eu1.hsdp.io"
         },
         "stl": {
-          "domain": "emea1.vpn.hsdp.io",
-          "url": "https://console.eu1.hsdp.io/api/stl/user/v1/graphql"
+          "url": "https://console.eu1.hsdp.io/api/stl/user/v1/graphql",
+          "domain": "emea1.vpn.hsdp.io"
         },
         "uaa": {
           "url": "https://uaa.eu1.phsdp.com"
@@ -325,11 +311,7 @@
     },
     "pl": {
       "env": {
-        "client-test": {
-          "logging": {
-            "url": "https://logingestor2-client-test.cf.pl.hsdp.io"
-          }
-        }
+        "client-test": {}
       }
     },
     "sa1": {
@@ -372,15 +354,15 @@
           "host": "cartel-sa1.cloud.phsdp.com"
         },
         "cf": {
-          "domain": "sa1.hsdp.io",
-          "url": "https://api.sys.sa1.hsdp.io"
+          "url": "https://api.sys.sa1.hsdp.io",
+          "domain": "sa1.hsdp.io"
         },
         "console": {
           "url": "https://console.sa1.hsdp.io"
         },
         "docker-registry": {
-          "host": "docker.sa1.hsdp.io",
-          "url": "https://console.sa1.hsdp.io/api/docker/graphql"
+          "url": "https://console.sa1.hsdp.io/api/docker/graphql",
+          "host": "docker.sa1.hsdp.io"
         },
         "gateway": {
           "domain": "sa1.phsdp.com",
@@ -464,6 +446,16 @@
             }
           }
         },
+        "preview": {
+          "service": {
+            "iam": {
+              "url": "https://iam.us-east-1.stg-foundation-security.hsp.philips.com"
+            },
+            "idm": {
+              "url": "https://idm.us-east-1.stg-foundation-security.hsp.philips.com"
+            }
+          }
+        },
         "prod": {
           "service": {
             "blr": {
@@ -471,6 +463,9 @@
             },
             "connect-mdm": {
               "url": "https://connect-mdm.us01.iot.hsdp.io/connect/mdm"
+            },
+            "discovery": {
+              "url": "https://discovery.us01.iot.hsdp.io/core/discovery"
             },
             "iam": {
               "url": "https://iam-service.us-east.philips-healthsuite.com"
@@ -492,6 +487,9 @@
             },
             "notification": {
               "url": "https://notification-service.us-east.philips-healthsuite.com"
+            },
+            "provisioning": {
+              "url": "https://provisioning.us01.iot.hsdp.io/connect/provisioning"
             },
             "s3creds": {
               "url": "https://s3creds-service.us-east.philips-healthsuite.com"
@@ -517,23 +515,23 @@
           "host": "cartel-na1.cloud.phsdp.com"
         },
         "cf": {
-          "domain": "us-east.philips-healthsuite.com",
-          "url": "https://api.cloud.pcftest.com"
+          "url": "https://api.cloud.pcftest.com",
+          "domain": "us-east.philips-healthsuite.com"
         },
         "console": {
           "url": "https://console.na1.hsdp.io"
         },
         "docker-registry": {
-          "host": "docker.na1.hsdp.io",
-          "url": "https://console.na1.hsdp.io/api/docker/graphql"
+          "url": "https://console.na1.hsdp.io/api/docker/graphql",
+          "host": "docker.na1.hsdp.io"
         },
         "gateway": {
           "domain": "na1.phsdp.com",
           "host": "gw.na1.hsdp.io"
         },
         "stl": {
-          "domain": "na1.vpn.hsdp.io",
-          "url": "https://console.na1.hsdp.io/api/stl/user/v1/graphql"
+          "url": "https://console.na1.hsdp.io/api/stl/user/v1/graphql",
+          "domain": "na1.vpn.hsdp.io"
         },
         "uaa": {
           "url": "https://uaa.cloud.pcftest.com"

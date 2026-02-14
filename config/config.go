@@ -1,6 +1,8 @@
 // Package world provides info on HSDP services
 package config
 
+//go:generate go run gen.go
+
 import (
 	"embed"
 	"encoding/json"

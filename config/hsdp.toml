@@ -173,6 +173,8 @@ url = "https://iam-service.sa1.hsdp.io"
 url = "https://iam-service.ap3.hsdp.io"
 [region.us-east.env.dev.service.iam]
 url = "https://iam-development.us-east.philips-healthsuite.com"
+[region.us-east.env.preview.service.iam]
+url = "https://iam.us-east-1.stg-foundation-security.hsp.philips.com"
 [region.cn1.env.prod.service.iam]
 url = "https://iam-service.cn1.philips-healthsuite.com.cn"
 [region.ca1.env.prod.service.iam]
@@ -193,6 +195,8 @@ url = "https://idm-service.sa1.hsdp.io"
 url = "https://idm-service.ap3.hsdp.io"
 [region.us-east.env.dev.service.idm]
 url = "https://idm-development.us-east.philips-healthsuite.com"
+[region.us-east.env.preview.service.idm]
+url = "https://idm.us-east-1.stg-foundation-security.hsp.philips.com"
 [region.cn1.env.prod.service.idm]
 url = "https://idm-service.cn1.philips-healthsuite.com.cn"
 [region.ca1.env.prod.service.idm]
