@@ -1,6 +1,18 @@
 {
   "region": {
     "apac2": {
+      "env": {
+        "prod": {
+          "service": {
+            "iam": {
+              "url": "https://iam-service.ap-ne.philips-healthsuite.com"
+            },
+            "idm": {
+              "url": "https://idm-service.ap-ne.philips-healthsuite.com"
+            }
+          }
+        }
+      },
       "service": {
         "cartel": {
           "host": "cartel-apac2.cloud.phsdp.com"
