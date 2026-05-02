@@ -9,7 +9,7 @@ require (
 	github.com/google/fhir/go v0.7.4
 	github.com/google/go-querystring v1.2.0
 	github.com/google/uuid v1.6.0
-	github.com/hasura/go-graphql-client v0.15.1
+	github.com/hasura/go-graphql-client v0.16.0
 	github.com/philips-software/go-nih-signer v1.5.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/oauth2 v0.35.0
@@ -17,8 +17,7 @@ require (
 
 require (
 	bitbucket.org/creachadair/stringset v0.0.9 // indirect
-	github.com/BurntSushi/toml v1.6.0 // indirect
-	github.com/coder/websocket v1.8.13 // indirect
+	github.com/coder/websocket v1.8.14 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.12 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
