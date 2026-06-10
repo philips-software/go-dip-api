@@ -315,7 +315,7 @@ func (p *ServicesService) updateScopes(service Service, action string, scopes []
 	var requestBody = struct {
 		Action        string   `json:"action"`
 		Scopes        []string `json:"scopes,omitempty"`
-		DefaultScopes []string `json:"defaultScopes,omitempty"`
+		DefaultScopes []string `json:"default_scopes,omitempty"`
 	}{
 		action,
 		scopes,
