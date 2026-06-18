@@ -7,7 +7,6 @@ import (
 	"net/http"
 
 	autoconf "github.com/philips-software/go-dip-api/config"
-	"github.com/philips-software/go-dip-api/console"
 	"github.com/philips-software/go-dip-api/internal"
 	"github.com/hasura/go-graphql-client"
 	"golang.org/x/oauth2"
@@ -30,8 +29,8 @@ type Config struct {
 
 // A Client manages communication with HSDP Edge API
 type Client struct {
-	// HTTP consoleClient used to communicate with IAM API
-	consoleClient *console.Client
+	// HTTP tokenSource used to communicate with IAM API
+	tokenSource oauth2.TokenSource
 
 	gql *graphql.Client
 
@@ -46,16 +45,16 @@ type Client struct {
 	Certs   *CertsService
 }
 
-// NewClient returns a new HSDP Edge API consoleClient. Configured console and IAM clients
+// NewClient returns a new HSDP Edge API Client. Configured console and IAM clients
 // must be provided as the underlying API requires tokens from respective services
-func NewClient(consoleClient *console.Client, config *Config) (*Client, error) {
-	return newClient(consoleClient, config)
+func NewClient(tokenSource oauth2.TokenSource, config *Config) (*Client, error) {
+	return newClient(tokenSource, config)
 }
 
-func newClient(consoleClient *console.Client, config *Config) (*Client, error) {
+func newClient(tokenSource oauth2.TokenSource, config *Config) (*Client, error) {
 	doAutoconf(config)
-	c := &Client{consoleClient: consoleClient, config: config, UserAgent: userAgent}
-	httpClient := oauth2.NewClient(context.Background(), consoleClient)
+	c := &Client{tokenSource: tokenSource, config: config, UserAgent: userAgent}
+	httpClient := oauth2.NewClient(context.Background(), tokenSource)
 
 	if config.DebugLog != nil {
 		httpClient.Transport = internal.NewLoggingRoundTripper(httpClient.Transport, config.DebugLog)

@@ -2,81 +2,36 @@ package stl_test
 
 import (
 	"context"
-	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
 
-	"github.com/philips-software/go-dip-api/console"
 	"github.com/philips-software/go-dip-api/stl"
 	"github.com/hasura/go-graphql-client"
 	"github.com/stretchr/testify/assert"
+	"golang.org/x/oauth2"
 )
 
 var (
-	muxUAA        *http.ServeMux
-	serverUAA     *httptest.Server
-	muxCONSOLE    *http.ServeMux
-	serverCONSOLE *httptest.Server
-	muxSTL        *http.ServeMux
-	serverSTL     *httptest.Server
-	token         string
-	refreshToken  string
-
-	consoleClient *console.Client
-	client        *stl.Client
+	muxSTL      *http.ServeMux
+	serverSTL   *httptest.Server
+	token       string
+	tokenSource oauth2.TokenSource
+	client      *stl.Client
 )
 
 func setup(t *testing.T) (func(), error) {
-	muxUAA = http.NewServeMux()
-	serverUAA = httptest.NewServer(muxUAA)
-	muxCONSOLE = http.NewServeMux()
-	serverCONSOLE = httptest.NewServer(muxCONSOLE)
 	muxSTL = http.NewServeMux()
 	serverSTL = httptest.NewServer(muxSTL)
-	var err error
 
-	assert.Nil(t, err)
-
-	consoleClient, err = console.NewClient(nil, &console.Config{
-		UAAURL:         serverUAA.URL,
-		BaseConsoleURL: serverCONSOLE.URL,
-	})
-	if !assert.Nil(t, err) {
-		t.Fatalf("invalid consoleClient")
-		return func() {}, err
-	}
 	token = "44d20214-7879-4e35-923d-f9d4e01c9746"
-	token2 := "55d20214-7879-4e35-923d-f9d4e01c9746"
-	refreshToken = "31f1a449-ef8e-4bfc-a227-4f2353fde547"
-
-	muxUAA.HandleFunc("/oauth/token", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != "POST" {
-			assert.Equal(t, "POST", r.Method)
-		}
-		err := r.ParseForm()
-		assert.Nil(t, err)
-		username := r.Form.Get("username")
-		returnToken := token
-		if username == "username2" {
-			returnToken = token2
-		}
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		_, _ = io.WriteString(w, `{
-    		"scope": "auth_iam_introspect mail",
-    		"access_token": "`+returnToken+`",
-    		"refresh_token": "`+refreshToken+`",
-    		"expires_in": 1799,
-    		"token_type": "Bearer"
-		}`)
+	tokenSource = oauth2.StaticTokenSource(&oauth2.Token{
+		AccessToken: token,
 	})
-	err = consoleClient.Login("username", "password")
-	if err != nil {
-		t.Fatal(err)
-	}
-	client, err = stl.NewClient(consoleClient, &stl.Config{
+
+	var err error
+	client, err = stl.NewClient(tokenSource, &stl.Config{
 		STLAPIURL: serverSTL.URL,
 	})
 	if !assert.Nil(t, err) {
@@ -85,8 +40,6 @@ func setup(t *testing.T) (func(), error) {
 	}
 
 	return func() {
-		serverUAA.Close()
-		serverCONSOLE.Close()
 		serverSTL.Close()
 	}, nil
 }
@@ -103,7 +56,7 @@ func TestDebug(t *testing.T) {
 		t.Fatalf("Error: %v", err)
 	}
 
-	client, err = stl.NewClient(consoleClient, &stl.Config{
+	client, err = stl.NewClient(tokenSource, &stl.Config{
 		STLAPIURL: serverSTL.URL,
 		DebugLog:  tmpfile,
 	})
