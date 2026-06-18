@@ -13,7 +13,6 @@ A DIP API client library enabling Go programs to interact with various DIP APIs 
 The current implement covers only a subset of DIP APIs. Basically, we implement functionality as needed.
 
 
-- [x] Cartel c.q. Container Host management ([examples](cartel/README.md))
 - [x] Connect IoT
   - [x] Master Data Management (MDM)
     - [x] Propositions
@@ -81,19 +80,7 @@ The current implement covers only a subset of DIP APIs. Basically, we implement 
   - [x] SMS Templates
 - [x] Logging ([examples](logging/README.md))
 - [x] Auditing ([examples](audit/README.md))
-- [x] Telemetry Data Repository (TDR)
-  - [x] Contract management
-  - [x] Data Item management
-- [x] Notification service
 - [x] Service Discovery
-- [x] Console settings
-  - [ ] Metrics Alerts
-  - [x] Metrics Autoscalers
-- [x] Docker Registry
-  - [x] Service Keys management
-  - [x] Namespace management
-  - [x] Repository management
-- [x] IronIO tasks, codes and schedules management ([examples](iron/README.md))
 
 ## Example usage
 

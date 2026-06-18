@@ -438,7 +438,7 @@ func userIDByLoginIDHandler(t *testing.T, loginID, email, userUUID string) func(
 		w.WriteHeader(http.StatusOK)
 		userId := r.URL.Query().Get("userId")
 
-		if !(userId == loginID || userId == userUUID) {
+		if userId != loginID && userId != userUUID {
 			_, _ = io.WriteString(w, `{
 				"total": 0,
 				"entry": []

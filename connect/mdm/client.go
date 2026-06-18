@@ -188,7 +188,7 @@ func (c *Client) NewRequest(method, requestPath string, opt interface{}, options
 		if err != nil {
 			return nil, err
 		}
-		u.RawQuery = strings.Replace(q.Encode(), "+", "%20", -1) // https://github.com/golang/go/issues/4013
+		u.RawQuery = strings.ReplaceAll(q.Encode(), "+", "%20") // https://github.com/golang/go/issues/4013
 	}
 
 	if method == "POST" || method == "PUT" {

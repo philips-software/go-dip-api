@@ -22,7 +22,7 @@ func (c *Client) CreateAuditEvent(event *dstu2pb.AuditEvent) (*stu3pb.ContainedR
 	_ = c.httpSigner.SignRequest(req)
 	var operationResponse bytes.Buffer
 	resp, doErr := c.do(req, &operationResponse)
-	if (doErr != nil && !(doErr == io.EOF || doErr == ErrBadRequest)) || resp == nil {
+	if (doErr != nil && doErr != io.EOF && doErr != ErrBadRequest) || resp == nil {
 		if resp == nil && doErr != nil {
 			doErr = fmt.Errorf("CreateAuditEvent: %w", ErrEmptyResult)
 		}

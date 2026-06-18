@@ -57,9 +57,9 @@ func FixPEM(pemString string) string {
 	end := "-----END"
 	pre := pemString
 	if !strings.Contains(pre, begin+"\n") {
-		pre = strings.Replace(pemString,
+		pre = strings.ReplaceAll(pemString,
 			begin,
-			begin+"\n", -1)
+			begin+"\n")
 	}
 	if !strings.Contains(pre, "\n"+end) {
 		return strings.Replace(pre,

@@ -498,7 +498,7 @@ func TestAddServicesAndDevices(t *testing.T) {
 				w.WriteHeader(http.StatusBadRequest)
 				return
 			}
-			if !(addRequest.MemberType == "SERVICE" || addRequest.MemberType == "DEVICE") {
+			if addRequest.MemberType != "SERVICE" && addRequest.MemberType != "DEVICE" {
 				t.Errorf("Expected SERVICE or DEVICE MemberType, got: %s", addRequest.MemberType)
 				w.WriteHeader(http.StatusBadRequest)
 				return
@@ -616,7 +616,7 @@ func TestRemoveServicesAndDevices(t *testing.T) {
 				w.WriteHeader(http.StatusBadRequest)
 				return
 			}
-			if !(removeRequest.MemberType == "SERVICE" || removeRequest.MemberType == "DEVICE") {
+			if removeRequest.MemberType != "SERVICE" && removeRequest.MemberType != "DEVICE" {
 				t.Errorf("Expected SERVICE or DEVICE MemberType, got: %s", removeRequest.MemberType)
 				w.WriteHeader(http.StatusBadRequest)
 				return
