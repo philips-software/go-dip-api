@@ -20,7 +20,12 @@ type Config struct {
 	OrgAdminPassword string
 	IAMURL           string
 	IDMURL           string
-	Scopes           []string
+	// TokenAudience overrides the "aud" claim of the JWT used for service
+	// login. When empty the audience defaults to the IAM access token
+	// endpoint. Some IAM deployments (e.g. Keycloak-backed realms) expect the
+	// realm issuer as the audience instead.
+	TokenAudience string
+	Scopes        []string
 	RootOrgID        string
 	DebugLog         io.Writer
 	Signer           *hsdpsigner.Signer

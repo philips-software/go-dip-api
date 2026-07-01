@@ -202,6 +202,12 @@ func (c *Client) WithLogin(username, password string) (*Client, error) {
 }
 
 func (c *Client) accessTokenEndpoint() string {
+	// Allow the JWT audience to be overridden, e.g. for Keycloak-backed IAM
+	// realms that expect the realm issuer rather than the access token
+	// endpoint as the audience.
+	if c.config.TokenAudience != "" {
+		return c.config.TokenAudience
+	}
 	if c.baseIAMURL != nil {
 		return c.baseIAMURL.String() + "oauth2/access_token"
 	}
