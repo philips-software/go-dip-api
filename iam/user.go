@@ -40,21 +40,21 @@ type UserMembership struct {
 }
 
 type UserAccountStatus struct {
-	LastLoginTime          time.Time `json:"lastLoginTime"`
-	MFAStatus              string    `json:"mfaStatus"`
-	EmailVerified          bool      `json:"emailVerified"`
-	PhoneVerified          bool      `json:"phoneVerified"`
-	MustChangePassword     bool      `json:"mustChangePassword"`
-	Disabled               bool      `json:"disabled"`
-	AccountLockedOn        time.Time `json:"accountLockedOn"`
-	AccountLockedUntil     time.Time `json:"accountLockedUntil"`
-	NumberOfInvalidAttempt int       `json:"numberOfInvalidAttempt"`
-	LastInvalidAttemptedOn time.Time `json:"lastInvalidAttemptedOn"`
+	LastLoginTime          string `json:"lastLoginTime"`
+	MFAStatus              string `json:"mfaStatus"`
+	EmailVerified          bool   `json:"emailVerified"`
+	PhoneVerified          bool   `json:"phoneVerified"`
+	MustChangePassword     bool   `json:"mustChangePassword"`
+	Disabled               bool   `json:"disabled"`
+	AccountLockedOn        string `json:"accountLockedOn"`
+	AccountLockedUntil     string `json:"accountLockedUntil"`
+	NumberOfInvalidAttempt int    `json:"numberOfInvalidAttempt"`
+	LastInvalidAttemptedOn string `json:"lastInvalidAttemptedOn"`
 }
 
 type UserPasswordStatus struct {
-	PasswordExpiresOn time.Time `json:"passwordExpiresOn"`
-	PasswordChangedOn time.Time `json:"passwordChangedOn"`
+	PasswordExpiresOn string `json:"passwordExpiresOn"`
+	PasswordChangedOn string `json:"passwordChangedOn"`
 }
 
 // Person represents an IAM user resource
