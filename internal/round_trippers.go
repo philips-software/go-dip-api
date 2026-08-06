@@ -24,8 +24,10 @@ const (
 var filterList = []filter{
 	{regexp.MustCompile(`Authorization: (.*)\n`), "Authorization: [sensitive]\n"},
 	{regexp.MustCompile(`X-User-Access-Token: (.*)\n`), "X-User-Access-Token: [sensitive]\n"},
+	{regexp.MustCompile(`(?i)Hsdp-Api-Signature: (.*)\n`), "Hsdp-Api-Signature: [sensitive]\n"},
 	{regexp.MustCompile(`password=[\w%]+`), "password=sensitive"},
 	{regexp.MustCompile(`"refresh_token":"[^"]+"`), `"refresh_token":"[sensitive]"`},
+	{regexp.MustCompile(`refresh_token=[\w%.~-]+`), "refresh_token=sensitive"},
 	{regexp.MustCompile(`"access_token":"[^"]+"`), `"access_token":"[sensitive]"`},
 	{regexp.MustCompile(`"signed_token":"[^"]+"`), `"signed_token":"[sensitive]"`},
 	{regexp.MustCompile(`"id_token":"[^"]+"`), `"id_token":"[sensitive]"`},
