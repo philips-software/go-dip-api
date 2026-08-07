@@ -51,7 +51,13 @@ func New(opts ...OptionFunc) (*Config, error) {
 		}
 	}
 	var world World
-	data, err := cfg.ReadFile("hsdp.json")
+	var data []byte
+	var err error
+	if config.source != nil {
+		data, err = io.ReadAll(config.source)
+	} else {
+		data, err = cfg.ReadFile("hsdp.json")
+	}
 	if err != nil {
 		return nil, err
 	}

@@ -58,7 +58,7 @@ func TestPreview(t *testing.T) {
 	assert.Equal(t, "https://idm.us-east-1.stg-foundation-security.hsp.philips.com", idmService.URL)
 }
 
-func TestCartel(t *testing.T) {
+func TestSTL(t *testing.T) {
 	c, err := config.New()
 	if !assert.Nil(t, err) {
 		return
@@ -67,13 +67,13 @@ func TestCartel(t *testing.T) {
 		return
 	}
 
-	cartelService := c.
+	stlService := c.
 		Region("us-east").
-		Service("cartel")
-	if !assert.NotNil(t, cartelService) {
+		Service("stl")
+	if !assert.NotNil(t, stlService) {
 		return
 	}
-	assert.Equal(t, "cartel-na1.cloud.phsdp.com", cartelService.Host)
+	assert.Equal(t, "na1.vpn.hsdp.io", stlService.Domain)
 }
 
 func TestOpts(t *testing.T) {
@@ -98,8 +98,8 @@ func TestOpts(t *testing.T) {
 	if !assert.NotNil(t, c) {
 		return
 	}
-	cartel := c.Service("cartel")
-	assert.Equal(t, "cartel-na1.cloud.phsdp.com", cartel.Host)
+	iam := c.Service("iam")
+	assert.Equal(t, "https://iam-client-test.us-east.philips-healthsuite.com", iam.URL)
 }
 
 func TestMissing(t *testing.T) {
@@ -139,6 +139,6 @@ func TestServices(t *testing.T) {
 	}
 	services := c.Region("us-east").Env("client-test").Services()
 	assert.Less(t, 0, len(services))
-	assert.Contains(t, services, "cf")
+	assert.Contains(t, services, "idm")
 	assert.Contains(t, services, "iam")
 }

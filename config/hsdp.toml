@@ -31,25 +31,20 @@
 #       Service
 #         iam
 #	  idm
-#         cartel
 #     Environment production
 #       Service
 #         iam
 #         idm
-#         cartel
-#         cdr
 #
 #   Region eu-west
 #     Environment client-test
 #       Service
 #         iam
 #         idm
-#         has
 #     Environment production
 #       Service
 #         iam
 #         idm
-#         s3cred
 #
 # Nesting syntax: [region.environment.service.instance]
 #
@@ -57,59 +52,6 @@
 # We also anticipate global services at some point
 # Example of a region bound service: Cloud foundry
 # Example of a environment bound service: IAM
-
-# Service Cloud foundry
-[region.us-east.service.cf]
-url = "https://api.cloud.pcftest.com"
-domain = "us-east.philips-healthsuite.com"
-[region.eu-west.service.cf]
-url = "https://api.eu1.phsdp.com"
-domain = "eu-west.philips-healthsuite.com"
-[region.sa1.service.cf]
-url = "https://api.sys.sa1.hsdp.io"
-domain = "sa1.hsdp.io"
-[region.apac3.service.cf]
-url = "https://api.sys.ap3.hsdp.io"
-domain = "ap3.hsdp.io"
-[region.ca1.service.cf]
-url = "https://api.sys.ca1.hsdp.io"
-domain = "ca1.hsdp.io"
-[region.apac2.service.cf]
-url = "https://api.ap-ne.philips-healthsuite.com"
-
-# Service DOCKER-REGISTRY
-[region.us-east.service.docker-registry]
-url = "https://console.na1.hsdp.io/api/docker/graphql"
-host = "docker.na1.hsdp.io"
-[region.eu-west.service.docker-registry]
-url = "https://console.eu1.hsdp.io/api/docker/graphql"
-host = "docker.eu1.hsdp.io"
-[region.sa1.service.docker-registry]
-url = "https://console.sa1.hsdp.io/api/docker/graphql"
-host = "docker.sa1.hsdp.io"
-[region.apac3.service.docker-registry]
-url = "https://console.ap3.hsdp.io/api/docker/graphql"
-host = "docker.ap3.hsdp.io"
-[region.ca1.service.docker-registry]
-url = "https://console.ca1.hsdp.io/api/docker/graphql"
-host = "docker.ca1.hsdp.io"
-[region.apac2.service.docker-registry]
-url = "https://console.ap2.hsdp.io/api/docker/graphql"
-host = "docker.ap2.hsdp.io"
-
-# Service CONSOLE
-[region.us-east.service.console]
-url = "https://console.na1.hsdp.io"
-[region.eu-west.service.console]
-url = "https://console.eu1.hsdp.io"
-[region.sa1.service.console]
-url = "https://console.sa1.hsdp.io"
-[region.apac3.service.console]
-url = "https://console.ap3.hsdp.io"
-[region.ca1.service.console]
-url = "https://console.ca1.hsdp.io"
-[region.apac2.service.console]
-url = "https://console.ap2.hsdp.io"
 
 # Service STL
 [region.dev.service.stl]
@@ -137,26 +79,6 @@ url = "https://uaa.cloud.phsdp.com"
 url = "https://uaa.sys.ca1.hsdp.io"
 [region.apac2.service.uaa]
 url = "https://uaa.ap-ne.philips-healthsuite.com"
-
-# Notification
-[region.us-east.env.client-test.service.notification]
-url = "https://notification-client-test.us-east.philips-healthsuite.com"
-[region.us-east.env.prod.service.notification]
-url = "https://notification-service.us-east.philips-healthsuite.com"
-[region.us-east.env.dev.service.notification]
-url = "https://notification-dev.us-east.philips-healthsuite.com"
-[region.eu-west.env.client-test.service.notification]
-url = "https://notification-client-test.eu-west.philips-healthsuite.com"
-[region.eu-west.env.prod.service.notification]
-url = "https://notification-service.eu-west.philips-healthsuite.com"
-[region.sa1.env.prod.service.notification]
-url = "https://notification-service.sa1.hsdp.io"
-[region.cn1.env.prod.service.notification]
-url = "https://notification-service.cn1.philips-healthsuite.com.cn"
-[region.apac3.env.prod.service.notification]
-url = "https://notification-service.ap3.hsdp.io"
-[region.ca1.env.prod.service.notification]
-url = "https://notification-service.ca1.hsdp.io"
 
 # Service IAM
 [region.us-east.env.client-test.service.iam]
@@ -206,68 +128,9 @@ url = "https://idm-service.cn1.philips-healthsuite.com.cn"
 [region.ca1.env.prod.service.idm]
 url = "https://idm-service.ca1.hsdp.io"
 
-# Service CARTEL
-[region.dev.service.cartel]
-host = "cartel-na1.cloud.phsdp.com"
-[region.us-east.service.cartel]
-host = "cartel-na1.cloud.phsdp.com"
-[region.eu-west.service.cartel]
-host = "cartel-eu1.cloud.phsdp.com"
-[region.sa1.service.cartel]
-host = "cartel-sa1.cloud.phsdp.com"
-[region.ca1.service.cartel]
-host = "cartel-ca1.cloud.phsdp.com"
-[region.apac2.service.cartel]
-host = "cartel-apac2.cloud.phsdp.com"
-[region.apac3.service.cartel]
-host = "cartel-apac3.cloud.phsdp.com"
-
-# Service GATEWAY
-[region.dev.service.gateway]
-host = "gw.na1.hsdp.io"
-domain = "na1.phsdp.com"
-[region.us-east.service.gateway]
-host = "gw.na1.hsdp.io"
-domain = "na1.phsdp.com"
-[region.eu-west.service.gateway]
-host = "gw.eu1.hsdp.io"
-domain = "emea1.phsdp.com"
-[region.sa1.service.gateway]
-host = "gw.sa1.hsdp.io"
-domain = "sa1.phsdp.com"
-[region.apac3.service.gateway]
-host = "gw.ap3.hsdp.io"
-domain = "apac3.phsdp.com"
-[region.ca1.service.gateway]
-host = "gw.ca1.hsdp.io"
-domain = "ca1.phsdp.com"
-[region.apac2.service.gateway]
-host = "gw.ap2.hsdp.io"
-domain = "apac2.phsdp.com"
-
-# Service S3CREDS
-[region.us-east.env.dev.service.s3creds]
-url = "https://s3creds-development.us-east.philips-healthsuite.com"
-[region.us-east.env.client-test.service.s3creds]
-url = "https://s3creds-client-test.us-east.philips-healthsuite.com"
-[region.us-east.env.prod.service.s3creds]
-url = "https://s3creds-service.us-east.philips-healthsuite.com"
-[region.eu-west.env.client-test.service.s3creds]
-url = "https://s3creds-client-test.eu-west.philips-healthsuite.com"
-[region.eu-west.env.prod.service.s3creds]
-url = "https://s3creds-service.eu-west.philips-healthsuite.com"
-[region.apac3.prod.service.s3creds]
-url = "https://s3creds-service.ap3.hsdp.io"
-[region.cn1.env.prod.service.s3creds]
-url = "https://s3creds-service.cn1.philips-healthsuite.com.cn"
-
 # Service DBS
 [region.eu-west.env.client-test.service.dbs]
 url = "https://databroker-client-test.eu01.connect.hsdp.io/client-test/connect/databroker"
-
-# Service CDR-STU3
-[region.us-east.env.sandbox.service.cdr-stu3]
-url = "https://cdr-stu3-sandbox.us-east.philips-healthsuite.com"
 
 # Service LOGGING
 [region.eu-west.env.client-test.service.logging]
@@ -302,80 +165,6 @@ url = "https://logquery.sa1.hsdp.io"
 url = "https://logquery.ap3.hsdp.io"
 [region.ca1.env.prod.service.logquery]
 url = "https://logquery.ca1.hsdp.io"
-
-# Service KIBANA
-[region.eu-west.env.client-test.service.kibana]
-url = "https://kibana-client-test.eu-west.philips-healthsuite.com"
-[region.eu-west.env.prod.service.kibana]
-url = "https://kibana.eu-west.philips-healthsuite.com"
-[region.us-east.env.client-test.service.kibana]
-url = "https://kibana-client-test.us-east.philips-healthsuite.com"
-[region.us-east.env.prod.service.kibana]
-url = "https://kibana.us-east.philips-healthsuite.com"
-[region.sa1.env.client-test.service.kibana]
-url = "https://kibana-client-test.sa1.hsdp.io"
-[region.sa1.env.prod.service.kibana]
-url = "https://kibana.sa1.hsdp.io"
-[region.apac3.env.prod.service.kibana]
-url = "https://kibana.ap3.hsdp.io"
-[region.ca1.env.prod.service.kibana]
-url = "https://kibana.ca1.hsdp.io"
-
-# Service PKI
-[region.eu-west.env.client-test.service.pki]
-url = "https://pki-proxy-client-test.eu-west.philips-healthsuite.com"
-[region.us-east.env.client-test.service.pki]
-url = "https://pki-client-test.us-east.philips-healthsuite.com"
-[region.eu-west.env.prod.service.pki]
-url = "https://pki-proxy-production.eu-west.philips-healthsuite.com"
-[region.sa1.env.prod.service.pki]
-url = "https://pki-proxy-prod-sa1.sa1.hsdp.io"
-
-# Service VAULT-PROXY
-[region.us-east.service.vault-proxy]
-url = "https://vproxy.us-east.philips-healthsuite.com"
-[region.us-west.service.vault-proxy]
-url = "https://vproxy.cloud.phsdp.com"
-[region.eu-west.service.vault-proxy]
-url = "https://vproxy.eu-west.philips-healthsuite.com"
-[region.sa1.service.vault-proxy]
-url = "https://vproxy.sa1.hsdp.io"
-[region.apac3.service.vault-proxy]
-url = "https://vproxy.ap3.hsdp.io"
-[region.cn1.service.vault-proxy]
-url = "https://vproxy.cn1.philips-healthsuite.com.cn"
-[region.ca1.service.vault-proxy]
-url = "https://vproxy.ca1.hsdp.io"
-
-# Service INFERENCE
-[region.us-east.env.client-test.service.inference]
-url = "https://client-test-aiinference-service.us-east.philips-healthsuite.com"
-[region.us-east.env.prod.service.inference]
-url = "https://aiinference-service.us-east.philips-healthsuite.com"
-[region.eu-west.env.client-test.service.inference]
-url = "https://client-test-aiinference-service.eu-west.philips-healthsuite.com"
-[region.eu-west.env.prod.service.inference]
-url = "https://aiinference-service.eu-west.philips-healthsuite.com"
-
-# Service WORKSPACE
-[region.us-east.env.client-test.service.workspace]
-url = "https://client-test-aiworkspace-service.us-east.philips-healthsuite.com"
-[region.us-east.env.prod.service.workspace]
-url = "https://aiworkspace-service.us-east.philips-healthsuite.com"
-[region.eu-west.env.client-test.service.workspace]
-url = "https://client-test-aiworkspace-service.eu-west.philips-healthsuite.com"
-[region.eu-west.env.prod.service.workspace]
-url = "https://aiworkspace-service.eu-west.philips-healthsuite.com"
-
-# Service TRAINING
-[region.us-east.env.client-test.service.training]
-url = "https://client-test-training-service.us-east.philips-healthsuite.com"
-[region.us-east.env.prod.service.training]
-url = "https://training-service.us-east.philips-healthsuite.com"
-[region.eu-west.env.client-test.service.training]
-url = "https://client-test-training-service.eu-west.philips-healthsuite.com"
-[region.eu-west.env.prod.service.training]
-url = "https://training-service.eu-west.philips-healthsuite.com"
 
 # Service CONNECT-MDM
 [region.us-east.env.client-test.service.connect-mdm]
