@@ -372,12 +372,18 @@ func (c *Client) Expires() int64 {
 
 // BaseIAMURL return a copy of the baseIAMURL.
 func (c *Client) BaseIAMURL() *url.URL {
+	if c == nil || c.baseIAMURL == nil {
+		return nil
+	}
 	u := *c.baseIAMURL
 	return &u
 }
 
 // BaseIDMURL return a copy of the baseIAMURL.
 func (c *Client) BaseIDMURL() *url.URL {
+	if c == nil || c.baseIDMURL == nil {
+		return nil
+	}
 	u := *c.baseIDMURL
 	return &u
 }
@@ -429,12 +435,21 @@ const (
 // specified, the value pointed to by body is JSON encoded and included as the
 // request body.
 func (c *Client) newRequest(endpoint, method, path string, opt interface{}, options []OptionFunc) (*http.Request, error) {
+	if c == nil {
+		return nil, fmt.Errorf("client is nil")
+	}
 	var u url.URL
 	switch endpoint {
 	case IDM:
+		if c.baseIDMURL == nil {
+			return nil, ErrBaseIDMCannotBeEmpty
+		}
 		u = *c.baseIDMURL
 		u.Opaque = c.baseIDMURL.Path + path
 	case IAM:
+		if c.baseIAMURL == nil {
+			return nil, ErrBaseIAMCannotBeEmpty
+		}
 		u = *c.baseIAMURL
 		u.Opaque = c.baseIAMURL.Path + path
 	default:

@@ -172,3 +172,11 @@ func TestDebug(t *testing.T) {
 	}
 }
 */
+
+func TestNilClient_NewRequest(t *testing.T) {
+	var nilClient *blr.Client
+	req, err := nilClient.NewRequest("GET", "test", nil)
+	assert.ErrorIs(t, err, blr.ErrBaseURLCannotBeEmpty)
+	assert.Nil(t, req)
+}
+

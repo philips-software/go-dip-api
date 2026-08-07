@@ -118,6 +118,9 @@ func (c *Client) GetEndpointURL() string {
 }
 
 func (c *Client) NewRequest(method, requestPath string, opt interface{}, options ...OptionFunc) (*http.Request, error) {
+	if c == nil || c.baseURL == nil {
+		return nil, ErrBaseURLCannotBeEmpty
+	}
 	u := *c.baseURL
 	// Set the encoded opaque data
 	u.Opaque = path.Join(c.baseURL.Path, requestPath)

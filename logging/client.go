@@ -140,6 +140,10 @@ func (r *StoreResponse) StatusCode() int {
 func NewClient(httpClient *http.Client, config *Config) (*Client, error) {
 	var logger Client
 
+	if config == nil {
+		return nil, ErrMissingBaseURL
+	}
+
 	if httpClient == nil {
 		c := &http.Client{
 			Transport: &http.Transport{

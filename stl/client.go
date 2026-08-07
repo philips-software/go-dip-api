@@ -3,6 +3,7 @@ package stl
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
 
@@ -52,6 +53,9 @@ func NewClient(tokenSource oauth2.TokenSource, config *Config) (*Client, error) 
 }
 
 func newClient(tokenSource oauth2.TokenSource, config *Config) (*Client, error) {
+	if config == nil {
+		return nil, fmt.Errorf("config cannot be nil")
+	}
 	doAutoconf(config)
 	c := &Client{tokenSource: tokenSource, config: config, UserAgent: userAgent}
 	httpClient := oauth2.NewClient(context.Background(), tokenSource)
