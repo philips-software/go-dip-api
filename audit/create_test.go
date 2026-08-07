@@ -180,3 +180,13 @@ func TestBadRequest(t *testing.T) {
 	}
 	assert.Nil(t, contained)
 }
+
+func TestCreateAuditEvent_NilClient(t *testing.T) {
+	var nilClient *audit.Client
+	event := &dstu2pb.AuditEvent{}
+	contained, resp, err := nilClient.CreateAuditEvent(event)
+	assert.Error(t, err)
+	assert.Nil(t, resp)
+	assert.Nil(t, contained)
+}
+

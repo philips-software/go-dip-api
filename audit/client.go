@@ -63,6 +63,10 @@ func NewClient(httpClient *http.Client, config *Config) (*Client, error) {
 func newClient(httpClient *http.Client, config *Config) (*Client, error) {
 	var err error
 
+	if config == nil {
+		return nil, fmt.Errorf("config cannot be nil")
+	}
+
 	if httpClient == nil {
 		c := &http.Client{
 			Transport: &http.Transport{
@@ -90,7 +94,9 @@ func newClient(httpClient *http.Client, config *Config) (*Client, error) {
 		return nil, fmt.Errorf("cdr.NewClient create FHIR STU3 unmarshaller (timezone=[%s]): %w", config.TimeZone, err)
 	}
 	c.um = um
-	_ = c.setAuditBaseURL(c.config.AuditBaseURL)
+	if err := c.SetAuditBaseURL(c.config.AuditBaseURL); err != nil {
+		return nil, err
+	}
 
 	return c, nil
 }
@@ -99,7 +105,8 @@ func newClient(httpClient *http.Client, config *Config) (*Client, error) {
 func (c *Client) Close() {
 }
 
-func (c *Client) setAuditBaseURL(urlStr string) error {
+// SetAuditBaseURL sets the base URL for Audit API requests
+func (c *Client) SetAuditBaseURL(urlStr string) error {
 	if urlStr == "" {
 		return ErrBaseURLCannotBeEmpty
 	}
@@ -113,6 +120,9 @@ func (c *Client) setAuditBaseURL(urlStr string) error {
 }
 
 func (c *Client) newAuditRequest(method, path string, bodyBytes []byte, options []OptionFunc) (*http.Request, error) {
+	if c == nil || c.auditStoreURL == nil {
+		return nil, ErrBaseURLCannotBeEmpty
+	}
 	u := *c.auditStoreURL
 	// Set the encoded opaque data
 	u.Path = c.auditStoreURL.Path + path

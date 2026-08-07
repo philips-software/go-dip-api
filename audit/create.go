@@ -11,6 +11,18 @@ import (
 )
 
 func (c *Client) CreateAuditEvent(event *dstu2pb.AuditEvent) (*stu3pb.ContainedResource, *Response, error) {
+	if c == nil {
+		return nil, nil, fmt.Errorf("audit.CreateAuditEvent: client is nil")
+	}
+	if c.ma == nil {
+		return nil, nil, fmt.Errorf("audit.CreateAuditEvent: marshaller not initialized")
+	}
+	if c.auditStoreURL == nil {
+		return nil, nil, fmt.Errorf("audit.CreateAuditEvent: %w", ErrBaseURLCannotBeEmpty)
+	}
+	if c.httpSigner == nil {
+		return nil, nil, fmt.Errorf("audit.CreateAuditEvent: signer not initialized")
+	}
 	eventJSON, err := c.ma.MarshalResource(event)
 	if err != nil {
 		return nil, nil, err
@@ -33,9 +45,11 @@ func (c *Client) CreateAuditEvent(event *dstu2pb.AuditEvent) (*stu3pb.ContainedR
 		return contained, resp, nil
 	}
 	// OperationOutcome
-	unmarshalled, _ := c.um.UnmarshalR3(operationResponse.Bytes())
-	if unmarshalled != nil {
-		contained = unmarshalled
+	if c.um != nil {
+		unmarshalled, _ := c.um.UnmarshalR3(operationResponse.Bytes())
+		if unmarshalled != nil {
+			contained = unmarshalled
+		}
 	}
 	return contained, resp, doErr
 }

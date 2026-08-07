@@ -57,3 +57,24 @@ func TestDebug(t *testing.T) {
 	assert.Nil(t, err)
 	assert.NotEqual(t, 0, fi.Size(), "Expected something to be written to DebugLog")
 }
+
+func TestNewClient_InvalidBaseURL(t *testing.T) {
+	_, err := audit.NewClient(nil, &audit.Config{
+		AuditBaseURL: "",
+		SharedKey:    "foo",
+		SharedSecret: "bar",
+	})
+	assert.ErrorIs(t, err, audit.ErrBaseURLCannotBeEmpty)
+}
+
+func TestSetAuditBaseURL(t *testing.T) {
+	teardown := setup(t)
+	defer teardown()
+
+	err := auditClient.SetAuditBaseURL("")
+	assert.ErrorIs(t, err, audit.ErrBaseURLCannotBeEmpty)
+
+	err = auditClient.SetAuditBaseURL("https://example.com/audit")
+	assert.NoError(t, err)
+}
+
