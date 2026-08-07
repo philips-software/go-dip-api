@@ -60,7 +60,6 @@ The current implement covers only a subset of DIP APIs. Basically, we implement 
   - [x] Device queries
   - [x] Application Resources management
   - [x] Device configuration management (firewall, logging)
-- [x] Public Key Infrastructure (PKI) management
 - [x] Identity and Access Management (IAM)
   - [x] Groups
   - [x] Organizations
