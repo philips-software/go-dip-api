@@ -3,7 +3,7 @@ module github.com/philips-software/go-dip-api
 go 1.25.0
 
 require (
-	github.com/BurntSushi/toml v1.3.2
+	github.com/BurntSushi/toml v1.6.0
 	github.com/cenkalti/backoff/v4 v4.3.0
 	github.com/go-playground/validator/v10 v10.30.3
 	github.com/golang-jwt/jwt/v5 v5.3.1
