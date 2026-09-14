@@ -1,6 +1,6 @@
 module github.com/philips-software/go-dip-api
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/BurntSushi/toml v1.3.2
@@ -13,7 +13,7 @@ require (
 	github.com/hasura/go-graphql-client v0.16.0
 	github.com/philips-software/go-nih-signer v1.5.0
 	github.com/stretchr/testify v1.11.1
-	golang.org/x/oauth2 v0.36.0
+	golang.org/x/oauth2 v0.37.0
 )
 
 require (
